@@ -1,0 +1,31 @@
+# Obtain files you need from Lab Onedrive - finalannotatorgenic.py Caenorhabditis_elegans.WBcel235.111.gff3 Caenorhabditis_elegans.WBcel235.111.gtf c.elegans.WS275.annotation.final.bed
+
+# Write an excel file consisting of chromosome number in the 1st column and coordinate in the 2nd column. Save as AMinput.csv file
+I  1011250 
+I  2348129
+
+
+# Create a folder in /N/slate/by6/
+mkdir AMannotation
+
+
+# On Mac terminal, copy and paste files you need from your laptop to Thinlinc 
+scp /Users/yang/Desktop/finalannotatorgenic.py by6@quartz.uits.iu.edu:/N/slate/by6/AMannotation
+scp /Users/yang/Desktop/Caenorhabditis_elegans.WBcel235.111.gff3 by6@quartz.uits.iu.edu:/N/slate/by6/AMannotation
+scp /Users/yang/Desktop/Caenorhabditis_elegans.WBcel235.111.gtf by6@quartz.uits.iu.edu:/N/slate/by6/AMannotation
+scp /Users/yang/Desktop/c.elegans.WS275.annotation.final.bed by6@quartz.uits.iu.edu:/N/slate/by6/AMannotation
+scp /Users/yang/Desktop/AMinput.csv by6@quartz.uits.iu.edu:/N/slate/by6/AMannotation
+
+
+# Run Python script (If this does not work, try .txt input file instead) 
+module load python 
+python finalannotatorgenic.py --gtf Caenorhabditis_elegans.WBcel235.111.gtf --file AMinput.csv --o output_annotationAM.csv 
+
+
+# Brifly check the output of the file 
+head output_annotationAM.csv 
+
+
+# On Mac terminal, export output from Thinlinc to your laptop 
+scp by6@quartz.uits.iu.edu:/N/slate/by6/AMannotation/output_annotationAM.csv ~/Desktop/
+
